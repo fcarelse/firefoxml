@@ -5,16 +5,16 @@
    https://fonts.google.com/specimen/Noto+Sans
 */
 * {
-  font-family: Noto Sans !important;
+  /* font-family: Noto Sans !important; */
   font-style: Regular !important;
-  font-size: 11pt !important;
+  /* font-size: 11pt !important; */
 }
 
 /* Bookmark font */
 #personal-bookmarks .bookmark-item menupopup * {
-  font-family: Noto Sans !important;
+  /* font-family: Noto Sans !important; */
   font-style: Regular !important;
-  font-size: 14pt !important;
+  /* font-size: 14pt !important; */
 }
 
 /* Remove URL bar zoom button */
@@ -82,7 +82,7 @@
 #tabbrowser-arrowscrollbox{
   overflow: -moz-hidden-unscrollable;
   display: block;
-  --scrollbutton-display-model: none;
+/*  --scrollbutton-display-model: none; */
 }
 
 .tabbrowser-tab{ height: var(--tab-min-height); }
@@ -114,15 +114,15 @@
 /* Github: https://github.com/aris-t2/customcssforfx ************************************/
 /****************************************************************************************/
 #TabsToolbar #tabbrowser-tabs .tabbrowser-tab:not([pinned]) .tab-close-button {
-  visibility: hidden !important;
+  visibility: visible !important;
   display: block !important;
-  opacity: 0 !important;
-  -moz-margin-end: -16px !important;
+  /* opacity: 0 !important; */
+  -moz-margin-end: 0px !important;
 }
 
 #TabsToolbar #tabbrowser-tabs .tabbrowser-tab[pinned] .tab-close-button {
-  visibility: hidden !important;
+  visibility: visible !important;
   display: block !important;
-  opacity: 0 !important;
+  /* opacity: 0 !important; */
   -moz-margin-start: -18px !important;
 }
