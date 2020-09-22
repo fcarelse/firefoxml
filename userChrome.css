@@ -50,16 +50,20 @@
     --multirow-n-rows: 5;
     --multirow-tab-min-width: 140px;
     --multirow-tab-dynamic-width: 0; /* Change to 0 for fixed-width tabs using the above width. */
+	--tab-min-height: 40px;
 }
 
 /* Scrollbar can't be clicked but the rows can be scrolled with mouse wheel */
 /* Uncomment the next line if you want to be able to use the scrollbar with mouse clicks */
 
-#tabbrowser-arrowscrollbox{ -moz-window-dragging: no-drag }
+#tabbrowser-arrowscrollbox{
+	-moz-window-dragging: no-drag;
+	min-height: 100px !important;	
+}
 
 /* Uncommenting the above makes you unable to drag the window from empty space in the tab strip but normal draggable spaces will continue to work */
 
-#tabbrowser-tabs{
+#tabbrowser-tabs, .tabbrowser-tabs{
   min-height: unset !important;
   padding-inline-start: 0px !important
 }
@@ -73,21 +77,21 @@
     display: flex;
     flex-wrap: wrap;
     overflow-y: auto;
-    max-height: calc(var(--tab-min-height) * var(--multirow-n-rows));
+    min-height: calc(var(--tab-min-height) * var(--multirow-n-rows));
     scrollbar-color: currentColor transparent;
     scrollbar-width: thin;
   }
 }
 
 #tabbrowser-arrowscrollbox{
-  overflow: -moz-hidden-unscrollable;
+  overflow: auto; /*-moz-hidden-unscrollable;*/
   display: block;
 /*  --scrollbutton-display-model: none; */
 }
 
 .tabbrowser-tab{ height: var(--tab-min-height); }
 
-#tabbrowser-tabs .tabbrowser-tab[pinned]{
+#tabbrowser-tabs .tabbrowser-tab[pinned], .tabbrowser-tabs .tabbrowser-tab[pinned]{
   position: static !important;
   margin-inline-start: 0px !important;
 }
