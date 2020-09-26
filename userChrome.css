@@ -57,15 +57,22 @@
 /* Uncomment the next line if you want to be able to use the scrollbar with mouse clicks */
 
 #tabbrowser-arrowscrollbox{
-	-moz-window-dragging: no-drag;
-	min-height: 100px !important;	
+	/*-moz-window-dragging: no-drag;*/
+    display: block;
+	min-height: 100px !important;
+	height: 100%;
+	max-height: 100vh !important;
 }
 
 /* Uncommenting the above makes you unable to drag the window from empty space in the tab strip but normal draggable spaces will continue to work */
 
-#tabbrowser-tabs, .tabbrowser-tabs{
+.tabbrowser-tabs{
   min-height: unset !important;
-  padding-inline-start: 0px !important
+  padding-inline-start: 0px !important;
+  counter-reset: tabcount
+  tab{
+	  counter-increment: tabcount;
+  }
 }
 
 @-moz-document url(chrome://browser/content/browser.xhtml){
@@ -73,25 +80,46 @@
   #scrollbutton-up,
   #scrollbutton-down{ display: var(--scrollbutton-display-model,initial) }
 
-  scrollbox[part][orient="horizontal"]{
-    display: flex;
+  box[part][orient="horizontal"]{
+    display: block;
     flex-wrap: wrap;
-    overflow-y: auto;
-    min-height: calc(var(--tab-min-height) * var(--multirow-n-rows));
+	align-content: flex-start;
+	align-items: stretch;
+    overflow: auto;
+	overflow-y: auto;
+	overflow-x: auto;
+  }
+
+  scrollbox[part][orient="horizontal"]{
+    display: block;
+    flex-wrap: wrap;
+	align-content: flex-start;
+	align-items: stretch;
+    overflow: auto;
+	overflow-y: auto;
+	overflow-x: auto;
+	
+	min-height: --tab-min-height !important;
+	hheight: calc(var(--tab-min-height) * var(--multirow-n-rows));
+    mmax-height: calc(var(--tab-min-height) * var(--multirow-n-rows)) !important;
     scrollbar-color: currentColor transparent;
     scrollbar-width: thin;
+	
   }
 }
 
-#tabbrowser-arrowscrollbox{
+.tabbrowser-arrowscrollbox{
   overflow: auto; /*-moz-hidden-unscrollable;*/
   display: block;
 /*  --scrollbutton-display-model: none; */
 }
 
-.tabbrowser-tab{ height: var(--tab-min-height); }
+.tabbrowser-tab{
+  height: var(--tab-min-height);
+  display: inline-block;
+}
 
-#tabbrowser-tabs .tabbrowser-tab[pinned], .tabbrowser-tabs .tabbrowser-tab[pinned]{
+.tabbrowser-tabs .tabbrowser-tab[pinned]{
   position: static !important;
   margin-inline-start: 0px !important;
 }
