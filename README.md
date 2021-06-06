@@ -10,5 +10,5 @@ Replacing &lt;user&gt; and &lt;profile&gt; as needed.
 
 ---
 **NOTE**
-Updating to work with Firefox 89
+Updated to work with Firefox 89
 ---
