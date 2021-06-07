@@ -108,21 +108,21 @@
     flex-wrap: wrap;
 	align-content: flex-start;
 	align-items: stretch;
-    overflow: auto;
-	overflow-y: auto;
-	overflow-x: auto;
+    ooverflow: auto;
+	ooverflow-y: auto;
+	ooverflow-x: auto;
   }
   
   
 
   scrollbox[part][orient="horizontal"]{
-    display: flex;
+    display: block;
     flex-wrap: wrap;
 	align-content: flex-start;
 	align-items: stretch;
-    overflow: auto;
-	overflow-y: auto;
-	overflow-x: auto;
+    ooverflow: auto;
+	ooverflow-y: auto;
+	ooverflow-x: auto;
 	
 	width: calc(100vw - var(--tab-min-height) -4px);
 	mmin-height: --tab-min-height !important;
