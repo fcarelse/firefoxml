@@ -58,12 +58,12 @@
 
 #tabbrowser-arrowscrollbox{
 	/*-moz-window-dragging: no-drag;*/
-    display: block;
-	margin-top: -40px;
-	margin-bottom: -35px;
-    flex-wrap: wrap;
+	display: block;
+	margin-top: -25px;
+	margin-bottom: -20px;
+	flex-wrap: wrap;
 	align-content: flex-start;
-    ooverflow: auto;
+	ooverflow: auto;
 	ooverflow-y: auto;
 	ooverflow-x: auto;
 	min-height: 200px !important;
