@@ -16,5 +16,5 @@ Replacing &lt;user&gt; and &lt;profile&gt; as needed.
 
 ---
 **NOTE:**
-Updated to work with Firefox 97
+Updated to work with Firefox 100
 ---
