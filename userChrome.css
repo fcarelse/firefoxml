@@ -50,6 +50,7 @@
     --multirow-n-rows: 5;
     --multirow-tab-min-width: 140px;
     --multirow-tab-dynamic-width: 0; /* Change to 0 for fixed-width tabs using the above width. */
+	--tab-min-width: 140px;
 	--tab-min-height: 40px;
 }
 
@@ -58,15 +59,15 @@
 
 #tabbrowser-arrowscrollbox{
 	/*-moz-window-dragging: no-drag;*/
-	display: block;
-	margin-top: -25px;
-	margin-bottom: -20px;
+	display: flex;
+	mmargin-top: -25px;
+	mmargin-bottom: -20px;
 	flex-wrap: wrap;
 	align-content: flex-start;
 	ooverflow: auto;
 	ooverflow-y: auto;
 	ooverflow-x: auto;
-	min-height: 200px !important;
+	min-height: 100px !important;
 	height: 100%;
 	max-height: 100vh !important;
 }
@@ -74,7 +75,7 @@
 /* Uncommenting the above makes you unable to drag the window from empty space in the tab strip but normal draggable spaces will continue to work */
 
 .tabbrowser-tabs{
-  min-height: unset !important;
+  mmin-height: unset !important;
   padding-inline-start: 0px !important;
   counter-reset: tabcount
   tab{
@@ -88,13 +89,25 @@
   #scrollbutton-down{ display: var(--scrollbutton-display-model,initial) }
   
   disabled#TabsToolbar-customization-target{
-    hheight: var(--tab-min-height);
+    height: var(--tab-min-height);
     display: block;
   }
   
+  .titlebar-spacer[type="post-tabs"] {
+    width: 0px !important;
+  }
+	
+  hbox.titlebar-spacer {
+    width: 10px !important;
+  }
+
   #tabbrowser-tabs{
-	ddisplay: inline-block;
-	width: calc(100vw - var(--tab-min-height) -4px);
+	display: inline-block;
+	wwidth: calc(100vw - var(--tab-min-width) -4px);
+	mmin-height: calc(var(--tab-min-height));
+	mmargin-bottom: 0;
+	ppadding-bottom: 0;
+	ooverflow: auto;
   }
   /*
   #new-tab-button{
@@ -124,7 +137,7 @@
 	ooverflow-y: auto;
 	ooverflow-x: auto;
 	
-	width: calc(100vw - var(--tab-min-height) -4px);
+	width: calc(100vw - var(--tab-min-width) -4px);
 	mmin-height: --tab-min-height !important;
 	hheight: calc(var(--tab-min-height) * var(--multirow-n-rows));
     mmax-height: calc(var(--tab-min-height) * var(--multirow-n-rows)) !important;
