@@ -1,6 +1,12 @@
 # firefoxml
 Firefox Multi Row Tabs userChrome.css Windows
 
+---
+**NOTE:**
+Broken as of Firefox Version 107
+---
+
+
 You may need to create the chrome folder in your profile first of all as well as enable this legacy feature.
 
 You will need to navigate to "about:config" in firefox and accept to make changes.
