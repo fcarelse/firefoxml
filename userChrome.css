@@ -1,39 +1,39 @@
 /* Global UI font
- Requires Google's Noto Sans font to be installed
- Install either from your package manager or download and
-   install from Google:
-   https://fonts.google.com/specimen/Noto+Sans
+	Requires Google's Noto Sans font to be installed
+	Install either from your package manager or download and
+		install from Google:
+		https://fonts.google.com/specimen/Noto+Sans
 */
 * {
-  /* font-family: Noto Sans !important; */
-  font-style: Regular !important;
-  /* font-size: 11pt !important; */
+	/* font-family: Noto Sans !important; */
+	font-style: Regular !important;
+	/* font-size: 11pt !important; */
 }
-
+	
 /* Bookmark font */
 #personal-bookmarks .bookmark-item menupopup * {
-  /* font-family: Noto Sans !important; */
-  font-style: Regular !important;
-  /* font-size: 14pt !important; */
+	/* font-family: Noto Sans !important; */
+	font-style: Regular !important;
+	/* font-size: 14pt !important; */
 }
 
 /* Remove URL bar zoom button */
 #urlbar-zoom-button {
-  display: none !important
+	display: none !important
 }
 
 /* Remove tab blur
-    https://github.com/Aris-t2/CustomCSSforFx/blob/master/classic/css/tabs/tab_titles_remove_blur.css
+	https://github.com/Aris-t2/CustomCSSforFx/blob/master/classic/css/tabs/tab_titles_remove_blur.css
 */
 .tab-label-container[textoverflow]:not([pinned]) {
-  mask-image: unset !important;
+	mask-image: unset !important;
 }
 
 /* Active Tab Background Color
-    http://forums.mozillazine.org/viewtopic.php?f=38&t=3048845
+	http://forums.mozillazine.org/viewtopic.php?f=38&t=3048845
 */
 .tab-content[selected="true"] {
-  background: rgba(65, 85, 145, 0.4) !important;
+	background: rgba(65, 85, 145, 0.4) !important;
 }
 
 
@@ -43,13 +43,13 @@
 
 /* It's recommended to move tabs new-tab-button outside tabs toolbar */
 
-/* Change the --multirow-n-rows to change maximum number of rows before the rows will start to scroll  */
+/* Change the --multirow-n-rows to change maximum number of rows before the rows will start to scroll	*/
 /* This maximum visible rows won't work before Fx66 */
 /* So this setting does nothing on Fx65 and all tab rows will be shown */
 :root{
-    --multirow-n-rows: 5;
-    --multirow-tab-min-width: 140px;
-    --multirow-tab-dynamic-width: 0; /* Change to 0 for fixed-width tabs using the above width. */
+	--multirow-n-rows: 7;
+	--multirow-tab-min-width: 140px;
+	--multirow-tab-dynamic-width: 0; /* Change to 0 for fixed-width tabs using the above width. */
 	--tab-min-width: 140px;
 	--tab-min-height: 40px;
 }
@@ -59,7 +59,7 @@
 
 #tabbrowser-arrowscrollbox{
 	/*-moz-window-dragging: no-drag;*/
-	display: flex;
+	display: block;
 	mmargin-top: -25px;
 	mmargin-bottom: -20px;
 	flex-wrap: wrap;
@@ -72,85 +72,105 @@
 	max-height: 100vh !important;
 }
 
+
+/* New 106 - 107 */
+.ttitlebar-min, .ttitlebar-max, .ttitlebar-close{
+	max-height: 60px;
+}
+
+.ttitlebar-button{
+	max-height: 60px;
+}
+
+hbox, .titlebar-buttonbox {
+	min-height: calc(var(--tab-min-height) * (var(--multirow-n-rows)-1));
+		height: calc(var(--tab-min-height) * (var(--multirow-n-rows)-1));
+}
+
 /* Uncommenting the above makes you unable to drag the window from empty space in the tab strip but normal draggable spaces will continue to work */
 
 .tabbrowser-tabs{
-  mmin-height: unset !important;
-  padding-inline-start: 0px !important;
-  counter-reset: tabcount
-  tab{
-	  counter-increment: tabcount;
-  }
+	mmin-height: unset !important;
+	padding-inline-start: 0px !important;
+	counter-reset: tabcount
+	tab{
+		counter-increment: tabcount;
+	}
 }
 
 @-moz-document url(chrome://browser/content/browser.xhtml){
-  #scrollbutton-up~spacer,
-  #scrollbutton-up,
-  #scrollbutton-down{ display: var(--scrollbutton-display-model,initial) }
-  
-  disabled#TabsToolbar-customization-target{
-    height: var(--tab-min-height);
-    display: block;
-  }
-  
-  .titlebar-spacer[type="post-tabs"] {
-    width: 0px !important;
-  }
+	#scrollbutton-up~spacer,
+	#scrollbutton-up,
+	#scrollbutton-down{
+		display: none;
+		/*var(--scrollbutton-display-model,initial);*/
+		max-height: var(--tab-min-height);
+	}
 	
-  hbox.titlebar-spacer {
-    width: 10px !important;
-  }
+	disabled#TabsToolbar-customization-target{
+		height: var(--tab-min-height);
+		display: block;
+	}
+	
+	.titlebar-spacer[type="post-tabs"] {
+		width: 0px !important;
+	}
+	
+	hbox.titlebar-spacer {
+		width: 10px !important;
+	}
 
-  #tabbrowser-tabs{
+	#tabbrowser-tabs{
 	display: inline-block;
 	wwidth: calc(100vw - var(--tab-min-width) -4px);
 	mmin-height: calc(var(--tab-min-height));
 	mmargin-bottom: 0;
 	ppadding-bottom: 0;
 	ooverflow: auto;
-  }
-  /*
-  #new-tab-button{
+	}
+	/*
+	#new-tab-button{
 	height: var(--tab-min-height);
 	width: var(--tab-min-height);
-    ddisplay: inline-block;
-  }*/
+		ddisplay: inline-block;
+	}*/
 
-  box[part][orient="horizontal"]{
-    display: flex;
-    flex-wrap: wrap;
-	align-content: flex-start;
-	align-items: stretch;
-    ooverflow: auto;
-	ooverflow-y: auto;
-	ooverflow-x: auto;
-  }
-  
-  
+	box[part][orient="horizontal"]{
+		display: flex-grow;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		align-items: stretch;
+		ooverflow: auto;
+		ooverflow-y: auto;
+		ooverflow-x: auto;
+	}
+	
+	
 
-  scrollbox[part][orient="horizontal"]{
-    display: block;
-    flex-wrap: wrap;
-	align-content: flex-start;
-	align-items: stretch;
-    ooverflow: auto;
-	ooverflow-y: auto;
-	ooverflow-x: auto;
+	scrollbox[part][orient="horizontal"]{
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		align-items: stretch;
+		ooverflow: auto;
+		ooverflow-y: auto;
+		ooverflow-x: auto;
 	
-	width: calc(100vw - var(--tab-min-width) -4px);
-	mmin-height: --tab-min-height !important;
-	hheight: calc(var(--tab-min-height) * var(--multirow-n-rows));
-    mmax-height: calc(var(--tab-min-height) * var(--multirow-n-rows)) !important;
-    scrollbar-color: currentColor transparent;
-    scrollbar-width: thin;
+		width: calc(100vw - var(--tab-min-width) -4px);
+		mmin-height: --tab-min-height !important;
+		min-height: calc(var(--tab-min-height) * (var(--multirow-n-rows)-1));
+		height: calc(var(--tab-min-height) * (var(--multirow-n-rows)-1));
+		max-height: calc(var(--tab-min-height) * var(--multirow-n-rows)) !important;
+		scrollbar-color: currentColor transparent;
+		scrollbar-width: thin;
 	
-  }
+	}
 }
 
 .tabbrowser-arrowscrollbox{
-  overflow: auto; /*-moz-hidden-unscrollable;*/
-  display: block;
-/*  --scrollbutton-display-model: none; */
+	overflow: auto; /*-moz-hidden-unscrollable;*/
+	display: block;
+/*	--scrollbutton-display-model: none; */
 }
 
 .browser-toolbar, #TabsToolbar-customization-target{
@@ -163,24 +183,24 @@
 }
 
 .tabbrowser-tab{
-  height: var(--tab-min-height);
-  display: inline-block;
-  margin: 2px;
+	height: var(--tab-min-height);
+	display: inline-block;
+	margin: 2px;
 }
 
 .tabbrowser-tabs .tabbrowser-tab[pinned]{
-  position: static !important;
-  margin-inline-start: 0px !important;
+	position: static !important;
+	margin-inline-start: 0px !important;
 }
 
 .tabbrowser-tab[fadein]:not([pinned]){
-  min-width: var(--multirow-tab-min-width) !important;
-  flex-grow: var(--multirow-tab-dynamic-width);
-  /*
-  Uncomment to enable full-width tabs, also makes tab dragging a tiny bit more sensible
-  Don't set to none or you'll see errors in console when closing tabs
-  */
-  /*max-width: 100vw !important;*/
+	min-width: var(--multirow-tab-min-width) !important;
+	flex-grow: var(--multirow-tab-dynamic-width);
+	/*
+	Uncomment to enable full-width tabs, also makes tab dragging a tiny bit more sensible
+	Don't set to none or you'll see errors in console when closing tabs
+	*/
+	/*max-width: 100vw !important;*/
 }
 
 .tabbrowser-tab > stack{ width: 100%; height: 100% }
@@ -195,15 +215,15 @@
 /* Github: https://github.com/aris-t2/customcssforfx ************************************/
 /****************************************************************************************/
 #TabsToolbar #tabbrowser-tabs .tabbrowser-tab:not([pinned]) .tab-close-button {
-  visibility: visible !important;
-  display: block !important;
-  /* opacity: 0 !important; */
-  -moz-margin-end: 0px !important;
+	visibility: visible !important;
+	display: block !important;
+	/* opacity: 0 !important; */
+	-moz-margin-end: 0px !important;
 }
 
 #TabsToolbar #tabbrowser-tabs .tabbrowser-tab[pinned] .tab-close-button {
-  visibility: visible !important;
-  display: block !important;
-  /* opacity: 0 !important; */
-  -moz-margin-start: -18px !important;
+	visibility: visible !important;
+	display: block !important;
+	/* opacity: 0 !important; */
+	-moz-margin-start: -18px !important;
 }

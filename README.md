@@ -3,7 +3,7 @@ Firefox Multi Row Tabs userChrome.css Windows
 
 ---
 **NOTE:**
-Broken as of Firefox Version 107
+Working again on 108
 ---
 
 
@@ -22,5 +22,5 @@ Replacing &lt;user&gt; and &lt;profile&gt; as needed.
 
 ---
 **NOTE:**
-Updated to work with Firefox 100
+Updated to work with Firefox 108
 ---
