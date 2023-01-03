@@ -1,5 +1,5 @@
 # firefoxml
-Firefox Multi Row Tabs userChrome.css Windows
+Firefox Multi Line Tabs userChrome.css Windows
 
 ---
 **NOTE:**
