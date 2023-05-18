@@ -3,7 +3,7 @@ Firefox Multi Line Tabs userChrome.css Windows
 
 ---
 **NOTE:**
-Working again on 108
+Confirmed still working on 113.0.1
 ---
 
 
