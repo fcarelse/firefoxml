@@ -148,7 +148,7 @@ hbox, .titlebar-buttonbox {
 	
 
 	scrollbox[part][orient="horizontal"]{
-		display: flex;
+		display: flex !important;
 		flex-wrap: wrap;
 		align-content: flex-start;
 		align-items: stretch;
@@ -164,6 +164,14 @@ hbox, .titlebar-buttonbox {
 		scrollbar-color: currentColor transparent;
 		scrollbar-width: thin;
 	
+	}
+
+	slot{
+		/* background-color: yellow; */
+		display: flex;
+		flex-wrap: wrap !important;
+		align-content: flex-start;
+		align-items: stretch;
 	}
 }
 
