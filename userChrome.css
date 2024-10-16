@@ -166,7 +166,7 @@ hbox, .titlebar-buttonbox {
 	
 	}
 
-	slot{
+	scrollbox slot{
 		/* background-color: yellow; */
 		display: flex;
 		flex-wrap: wrap !important;
