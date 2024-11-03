@@ -67,7 +67,7 @@
 	ooverflow: auto;
 	ooverflow-y: auto;
 	ooverflow-x: auto;
-	min-height: 100px !important;
+	min-height: 40px !important;
 	height: 100%;
 	max-height: 100vh !important;
 }
